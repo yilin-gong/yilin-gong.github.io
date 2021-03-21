@@ -10,7 +10,7 @@
    <link href="css/basic.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
    <title>
-      Contact me
+      Weekly assignment 8
    </title>
       <body>
       <div id="grad1">
@@ -112,9 +112,17 @@
   Web Graph 2
 </h4>
 <p>
-  Based on the denver <a href="original/denver-1.nov.csv">police data</a>, I use python to analyze the data by using pandas. Firstly, I change the date to daytime object, to get the index of weekdays. Then, I simply use enumerate function to count the arrest made category, showing as the weekdays. The code can be found <a href="original/8.py"> here.</a> Finally, I used the Altair to render the image and embed in the web page. 
+  Based on the denver <a href="original/denver-1.nov.csv">police data</a>, I use python to analyze the data by using pandas. Firstly, I change the date to daytime object, to get the index of weekdays. Then, I simply use enumerate function to count the arrest made category, showing as the weekdays. The code can be found <a href="original/8.py"> here.</a> I stored all true value of arrest made of the data as the list, and count the numbers. Finally, I used the Altair to render the image and embed in the web page. 
 </p>
-
+<code>import pandas as pd<br>
+data = pd.read_csv('denver-1.nov.csv')<br>
+data['days'] = pd.to_datetime(data['date']).map(lambda x: x.weekday())<br>
+list1 = []<br>
+for n,i in enumerate(data['arrest_made']):<br>
+    if i==True:<br>
+        list1.append(data.loc[n,'days'])<br>
+for i in range(7):<br>
+    print(i, list1.count(i))<br></code><br>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
@@ -142,7 +150,7 @@
   </script>
 
 <p>
-  Based on the chart, we can see that on Wednesday and Thursday, the total stop records and arrests made are significantly higher than on other days. That probably because more people go outside on certain days or the police are especially more outside on those days. Therefore, in the future, I want to compare several other data, such as more police data in different years, the routine that people usually go outside in a week, and to combine the arrest made, citation issued, warning issued in one chart as a different legend, to see the pattern clearly. Also, using the geodata to show the result in a map maybe easier for reader to understand and might avoid some streets in certain days. 
+  Based on the chart, we can see that on Wednesday and Thursday, the total stop records and arrests made are significantly higher than on other days. That probably because more people go outside on certain days or the police are especially more outside on those days, or the lack of data since it only has a month record. Therefore, in the future, I want to compare several other data, such as more police data in different years, the routine that people usually go outside in a week, and to combine the arrest made, citation issued, warning issued in one chart as a different legend, to see the pattern clearly. Also, I want to ask how the stops might look like as a geo graph. Because using the geodata to show the result in a map may be easier for a reader to understand and might avoid some streets on certain days. 
 </p>
 
 </div>
