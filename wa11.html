@@ -1,0 +1,164 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Weekly Assignment 11</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/serif.min.css" id="theme">
+
+		<script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>seattle weather</h3>
+					
+				</section>
+
+				<section>
+					<p>want to get the weather status in seattle</p>
+					<p>general patterns and relation between precipitation and wind</p>
+				</section>
+
+				<section>
+					<div id="vis"></div>
+	<script type="text/javascript">
+		var spec = {
+		  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+		  "config": {
+		    "view": {
+		      "continuousHeight": 800,
+		      "continuousWidth": 800
+		    }
+
+		  },
+		  'width':600,
+		    'height':600,
+		  "data": {
+		    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.2.0/data/seattle-weather.csv"
+		  },
+		  "encoding": {
+		    "color": {
+		      "field": "weather",
+		      "type": "nominal"
+		    },
+		    "x": {
+		      "field": "precipitation",
+		      "type": "quantitative"
+		    },
+		    "y": {
+		      "field": "wind",
+		      "type": "quantitative"
+		    }
+		  },
+		  "mark": "point"
+		};;  /* JSON dump of your chart's spec */
+		var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+		vegaEmbed("#vis", spec, opt);
+	</script>
+
+				</section>
+				<section>
+					<div id="vis1"></div>
+				<script type="text/javascript">
+					var spec = {
+					  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+					  "config": {
+					    "view": {
+					      "continuousHeight": 800,
+					      "continuousWidth": 800
+					    }
+
+					  },
+					  'width':600,
+					    'height':600,
+					  "data": {
+					    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.2.0/data/seattle-weather.csv"
+					  },
+					  "encoding": {
+					    "x": {
+					      "field": "weather",
+					      "type": "nominal"
+					    },
+					    "y": {
+					      
+					      "aggregate": "count" 
+					    }
+					  },
+					  "mark": "bar"
+					};;  /* JSON dump of your chart's spec */
+					var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+					vegaEmbed("#vis1", spec, opt);
+				</script>
+
+				</section>
+
+				<section>
+					<p>Most weather is Sun and rain in seattle</p>
+					<p>The amound of wind seems unrelated with precipitation</p>
+				</section>
+				<section data-auto-animate>
+					How to get them?
+					<pre><code data-trim data-line-numbers=|12|,|16-17|><script type="text/template">
+				var spec = {
+				  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+				  "config": {
+				    "view": {
+				      "continuousHeight": 800,
+				      "continuousWidth": 800
+				    }
+				  },
+				  'width':600,
+				    'height':600,
+				  "data": {
+				    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.2.0/data/seattle-weather.csv"
+				  },
+				  "encoding": {
+				    "color": {
+				      "field": "weather",
+				      "type": "nominal"
+				    },
+				    "x": {
+				      "field": "precipitation",
+				      "type": "quantitative"
+				    },
+				    "y": {
+				      "field": "wind",
+				      "type": "quantitative"
+				    }
+				  },
+				  "mark": "point"
+				};;  /* JSON dump of your chart's spec */
+				var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+				vegaEmbed("#vis", spec, opt);
+						</script></code></pre>
+						By modifing the reveal script at the end of the html, we can add the auto slide features. 
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
