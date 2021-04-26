@@ -114,13 +114,15 @@
 					  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
 					  "config": {
 					    "view": {
-					      "continuousHeight": 200,
-					      "continuousWidth": 200
+					      "continuousHeight": 250,
+					      "continuousWidth": 400
 					    }
 
 					  },
-					  'width':150,
-					    'height':150,
+					  'width':500,
+					    'height':250,
+					    "layer":[{
+					    "hconcat": [{
 					  "data": {
 					    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.2.0/data/seattle-weather.csv"
 					  },
@@ -138,14 +140,41 @@
 					    	"type": "quantitative"
 
 					    },
-					    "column": {
-							"field": "weather",
-							"type": "nominal"
-						},
+					    
+					  },
+					  
+						
+					  "mark": "bar"},{
+					  	"data": {
+					    "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.2.0/data/seattle-weather.csv"
+					  },
+					  "encoding": {
+					    "x": {
+					      "field": "date",
+					      "type": "temporal"
+					    },
+					    "y": {
+					      "field": "wind",
+					      "type": "quantitative"
+					    },
+					    "color":{
+					    	"field": "weather",
+					    	"type": "nominal"
+
+					    },
+					    
 					  },
 					  
 						
 					  "mark": "bar"
+					  },],},{
+					  	"mark": "rule",
+				      "encoding": {
+				        "y": {"field": "precipitation", "aggregate": "mean"},
+				        "size": {"value": 2},
+				        "color": {"field": "symbol"}
+				      },
+				  },],
 					};;  /* JSON dump of your chart's spec */
 					var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
 					vegaEmbed("#vis1", spec, opt);
