@@ -61,6 +61,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<script>
+  // Apply saved theme synchronously before paint to prevent flash on navigation
+  (function () {
+    try {
+      var stored = localStorage.getItem('siteTweaks');
+      var t = stored ? JSON.parse(stored) : {};
+      var theme = t.theme || 'auto';
+      if (theme === 'auto') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'paper';
+      }
+      document.documentElement.dataset.theme = theme;
+      if (t.density) document.documentElement.dataset.density = t.density;
+    } catch (e) {}
+  })();
+</script>
+
 <style>
   :root {
     --paper: #f6f3ea;
@@ -76,14 +92,14 @@
     --scan: transparent;
     --glow: none;
   }
-  body[data-theme="dark"] {
+  body[data-theme="dark"], html[data-theme="dark"] {
     --paper: #1c1a17; --ink: #ebe5d6; --mute: #8a8272;
     --faint: #3a352d; --rule: #3a352d;
     --accent: #f472b6; --accent-soft: #3d1f2c;
     --term-bg: #221f1b;
     --dot-1: rgba(255,255,255,0.025); --dot-2: rgba(255,255,255,0.018);
   }
-  body[data-theme="phosphor"] {
+  body[data-theme="phosphor"], html[data-theme="phosphor"] {
     --paper: #0a0f09; --ink: #7bff8f; --mute: #3f8a4a;
     --faint: #1a3a1f; --rule: #1a3a1f;
     --accent: #aaffaa; --accent-soft: #1a3a1f;
@@ -92,7 +108,7 @@
     --scan: repeating-linear-gradient(0deg, rgba(123,255,143,0.04) 0px, rgba(123,255,143,0.04) 1px, transparent 1px, transparent 3px);
     --glow: 0 0 2px rgba(123,255,143,0.6);
   }
-  body[data-theme="amber"] {
+  body[data-theme="amber"], html[data-theme="amber"] {
     --paper: #1a0f04; --ink: #ffb347; --mute: #8a5a20;
     --faint: #3a2410; --rule: #3a2410;
     --accent: #ffd580; --accent-soft: #3a2410;
@@ -101,13 +117,15 @@
     --scan: repeating-linear-gradient(0deg, rgba(255,179,71,0.04) 0px, rgba(255,179,71,0.04) 1px, transparent 1px, transparent 3px);
     --glow: 0 0 2px rgba(255,179,71,0.5);
   }
-  body[data-theme="solarized"] {
+  body[data-theme="solarized"], html[data-theme="solarized"] {
     --paper: #fdf6e3; --ink: #073642; --mute: #657b83;
     --faint: #eee8d5; --rule: #d8d2b9;
     --accent: #268bd2; --accent-soft: #e1edf5;
     --term-bg: #fdf6e3;
     --dot-1: transparent; --dot-2: transparent;
   }
+  /* Paint html with --paper so the gap between page-unload and body-paint shows the right color */
+  html { background: var(--paper); }
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0; min-height: 100%;
@@ -243,15 +261,7 @@
     background: var(--ink); color: var(--paper); border-color: var(--ink);
   }
 
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme]) {
-      --paper: #1c1a17; --ink: #ebe5d6; --mute: #8a8272;
-      --faint: #3a352d; --rule: #3a352d;
-      --accent: #f472b6; --accent-soft: #3d1f2c;
-      --term-bg: #221f1b;
-      --dot-1: rgba(255,255,255,0.025); --dot-2: rgba(255,255,255,0.018);
-    }
-  }
+  /* Auto-dark is now resolved by the early inline script in <head> to either 'paper' or 'dark', so no media-query block needed here. */
 
   body[data-animating="true"] .term-body > * { opacity: 0; }
   body[data-animating="true"] .term-body > [data-shown="true"] {
