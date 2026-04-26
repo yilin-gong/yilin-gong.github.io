@@ -320,6 +320,24 @@
     }
   }
 
+  /* ─── First-visit typing animation ─── */
+  body[data-animating="true"] .term-body > * {
+    opacity: 0;
+  }
+  body[data-animating="true"] .term-body > [data-shown="true"] {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+  }
+  body[data-animating="true"] [data-typing="true"] .cmd::after {
+    content: '▋';
+    display: inline-block;
+    margin-left: 1px;
+    color: var(--ink);
+    animation: typecursor 0.55s steps(1) infinite;
+  }
+  body[data-animating="true"] .caret { visibility: hidden; }
+  @keyframes typecursor { 50% { opacity: 0; } }
+
   /* ─── Print: always print the CV, strip terminal chrome ─── */
   @media print {
     @page { margin: 0.75in; size: letter; }
@@ -417,7 +435,7 @@
     </div>
     <div class="term-body">
 
-      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd">cat cv.txt</span></div>
+      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="cv-cat">cat cv.txt</span></div>
 
       <div data-sp style="height:6px"></div>
 
@@ -722,6 +740,89 @@
     });
   }
   applyTweaks(TWEAKS);
+
+  // ─── Per-view typing animation (runs once per view, per session) ───
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function maybeAnimate(view) {
+    if (reducedMotion) return;
+    if (!view) return;
+    const flagKey = view + 'AnimPlayed';
+    if (sessionStorage.getItem(flagKey) === '1') return;
+
+    const termBody = document.querySelector('.v-term[data-view="' + view + '"] .term-body');
+    if (!termBody) return;
+    const children = Array.from(termBody.children);
+    if (!children.length) return;
+
+    // Capture full text for animatable prompts and clear them
+    const cmdMap = new Map();
+    termBody.querySelectorAll('.cmd[data-cmd]').forEach(el => {
+      cmdMap.set(el, el.textContent);
+      el.textContent = '';
+    });
+
+    let skipped = false;
+    function onSkip() { finish(); }
+    function finish() {
+      if (skipped) return;
+      skipped = true;
+      ['click', 'keydown', 'touchstart', 'wheel'].forEach(ev => {
+        window.removeEventListener(ev, onSkip, { capture: true });
+      });
+      cmdMap.forEach((text, el) => { el.textContent = text; });
+      children.forEach(c => { c.dataset.shown = 'true'; });
+      termBody.querySelectorAll('[data-typing]').forEach(el => delete el.dataset.typing);
+      sessionStorage.setItem(flagKey, '1');
+      delete document.body.dataset.animating;
+    }
+    ['click', 'keydown', 'touchstart', 'wheel'].forEach(ev => {
+      window.addEventListener(ev, onSkip, { passive: true, capture: true });
+    });
+
+    document.body.dataset.animating = 'true';
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    (async function () {
+      for (const child of children) {
+        if (skipped) return;
+        const cmd = child.classList.contains('cmd-line')
+          ? child.querySelector('.cmd[data-cmd]')
+          : null;
+
+        child.dataset.shown = 'true';
+
+        if (cmd) {
+          const text = cmdMap.get(cmd) || '';
+          const line = cmd.closest('.cmd-line');
+          line.dataset.typing = 'true';
+          await sleep(220);
+          for (let i = 1; i <= text.length; i++) {
+            if (skipped) return;
+            cmd.textContent = text.slice(0, i);
+            await sleep(28 + Math.random() * 36);
+          }
+          await sleep(160);
+          delete line.dataset.typing;
+          await sleep(140);
+        } else {
+          await sleep(70);
+        }
+      }
+      if (!skipped) {
+        sessionStorage.setItem(flagKey, '1');
+        delete document.body.dataset.animating;
+      }
+    })();
+  }
+
+  // Initial animation for whichever view loaded first
+  maybeAnimate(document.body.dataset.view);
+
+  // Animate the new view on navigation (if not already played this session)
+  window.addEventListener('hashchange', () => {
+    setTimeout(() => maybeAnimate(document.body.dataset.view), 0);
+  });
 
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
