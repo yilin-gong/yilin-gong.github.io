@@ -4,56 +4,20 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Yilin Gong · PhD Student, Information Science, IU Luddy</title>
-<meta name="description" content="Yilin Gong is a PhD student in Information Science at the Luddy School, Indiana University. Research on Community Notes, crowdsourced fact-checking, and platform governance."/>
+<title>Yilin Gong · CV</title>
+<meta name="description" content="Curriculum Vitae — Yilin Gong, PhD Student in Information Science at the Luddy School, Indiana University Bloomington."/>
 <meta name="author" content="Yilin Gong"/>
-<meta name="keywords" content="Yilin Gong, PhD, Information Science, IU Luddy, Indiana University, Community Notes, crowdsourced fact-checking, misinformation, platform governance, computational social science"/>
-
-<link rel="canonical" href="https://yilingong.github.io/"/>
+<link rel="canonical" href="https://yilingong.github.io/cv.html"/>
 
 <meta property="og:type" content="profile"/>
-<meta property="og:title" content="Yilin Gong · PhD Student, IU Luddy"/>
-<meta property="og:description" content="PhD student in Information Science at IU Luddy. Researching Community Notes and crowdsourced fact-checking on X."/>
-<meta property="og:url" content="https://yilingong.github.io/"/>
+<meta property="og:title" content="Yilin Gong · CV"/>
+<meta property="og:description" content="Curriculum Vitae — PhD Student, IU Luddy. Education, publications, research projects, experience."/>
+<meta property="og:url" content="https://yilingong.github.io/cv.html"/>
 <meta property="og:image" content="https://yilingong.github.io/og.png"/>
-<meta property="profile:first_name" content="Yilin"/>
-<meta property="profile:last_name" content="Gong"/>
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Yilin Gong · PhD, IU Luddy"/>
-<meta name="twitter:description" content="PhD student studying Community Notes and crowdsourced fact-checking."/>
-<meta name="twitter:creator" content="@yilingong"/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Yilin Gong",
-  "url": "https://yilingong.github.io/",
-  "email": "mailto:yg24@iu.edu",
-  "jobTitle": "PhD Student",
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "Luddy School of Informatics, Computing, and Engineering",
-    "parentOrganization": "Indiana University Bloomington",
-    "url": "https://luddy.indiana.edu/"
-  },
-  "knowsAbout": [
-    "Community Notes",
-    "Crowdsourced fact-checking",
-    "Platform governance",
-    "Misinformation",
-    "Computational social science",
-    "Information science"
-  ],
-  "sameAs": [
-    "https://scholar.google.com/citations?user=YOUR_ID",
-    "https://github.com/yilingong",
-    "https://twitter.com/yilingong",
-    "https://www.linkedin.com/in/yilingong"
-  ]
-}
-</script>
+<meta name="twitter:title" content="Yilin Gong · CV"/>
+<meta name="twitter:description" content="PhD student in Information Science at IU Luddy."/>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13' font-family='monospace'%3E%3E_%3C/text%3E%3C/svg%3E"/>
 
@@ -124,15 +88,12 @@
   }
   body[data-theme="phosphor"], body[data-theme="amber"] { text-shadow: var(--glow); }
 
-  body[data-density="tight"] .paper .tldr { display: none; }
-  body[data-density="tight"] .paper { margin: 4px 0 6px; }
   body[data-density="tight"] .term-body { padding: 12px 16px; }
-  body[data-density="tight"] .term-line { line-height: 1.45; }
+  body[data-density="tight"] .cv-section { margin: 10px 0 12px; }
   body[data-density="tight"] [data-sp] { height: 4px !important; }
-  body[data-density="spacious"] .paper { margin: 18px 0 22px; }
   body[data-density="spacious"] .term-body { padding: 28px 32px; line-height: 1.9; }
+  body[data-density="spacious"] .cv-section { margin: 22px 0 24px; }
   body[data-density="spacious"] [data-sp] { height: 18px !important; }
-  body[data-density="spacious"] .paper .tldr { margin-top: 4px; }
 
   a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted currentColor; }
   a:hover { background: var(--accent-soft); }
@@ -176,19 +137,56 @@
   .term-line.out .em { color: var(--ink); }
   .prompt { color: var(--accent); font-weight: 700; user-select: none; }
   .cmd { font-weight: 600; }
-  .cmd-line { cursor: default; }
   .caret {
     display: inline-block; width: 8px; height: 14px;
     background: var(--ink); vertical-align: -2px; margin-left: 2px;
   }
 
-  .papers { margin: 6px 0 10px 16px; }
-  .paper { margin: 10px 0 14px; }
-  .paper .line1 { font-size: 13px; }
-  .yr { color: var(--accent); font-weight: 700; }
-  .ptitle { color: var(--ink); font-weight: 700; }
-  .paper .tldr { color: var(--mute); font-style: italic; padding-left: 46px; font-size: 12.5px; }
-  .paper .auth { color: var(--mute); font-size: 12px; padding-left: 46px; }
+  h1, h2, h3 { font-size: inherit; font-weight: inherit; margin: 0; }
+
+  .cv-head { padding: 4px 0 8px; }
+  .cv-head h1 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: 0.3px; display: block; }
+  .cv-head .meta { color: var(--mute); margin-top: 2px; font-size: 12.5px; }
+  .cv-head .contact { margin-top: 6px; font-size: 12.5px; }
+  .cv-head .contact a { margin-right: 4px; }
+  .cv-head .actions { float: right; font-size: 11px; }
+  .cv-head .actions a { margin-left: 6px; }
+
+  .cv-section { margin: 18px 0 16px; }
+  .cv-h2 {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .cv-h2::before { content: "##"; color: var(--mute); font-weight: 400; }
+  .cv-h2::after {
+    content: ""; flex: 1;
+    border-bottom: 1px dashed var(--rule);
+    transform: translateY(-4px);
+  }
+
+  .cv-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    margin: 0 0 14px;
+    padding: 0 0 0 8px;
+  }
+  .cv-row:last-child { margin-bottom: 0; }
+  .cv-date {
+    color: var(--mute);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    padding-top: 1px;
+  }
+  .cv-body .where { font-weight: 700; color: var(--ink); }
+  .cv-body .what  { color: var(--ink); }
+  .cv-body .note  { color: var(--mute); font-size: 12px; margin-top: 2px; }
+  .cv-body .note em { font-style: italic; color: var(--ink); }
 
   .sig {
     margin-top: 20px; padding-top: 12px;
@@ -197,12 +195,13 @@
     display: flex; justify-content: space-between;
   }
 
-  h1, h2, h3 { font-size: inherit; font-weight: inherit; margin: 0; display: inline; }
-
   @media (max-width: 640px) {
     .shell { padding: 20px 12px 40px; }
     .term-body { padding: 14px 14px; font-size: 12px; }
-    .paper .tldr, .paper .auth { padding-left: 0; }
+    .cv-row { grid-template-columns: 1fr; gap: 2px; }
+    .cv-date { font-size: 11px; }
+    .cv-head .actions { float: none; display: block; margin-top: 4px; }
+    .cv-head .actions a { margin-left: 0; margin-right: 8px; }
     .term-bar .tabs .tab { padding: 1px 6px; font-size: 10px; }
   }
   @media (prefers-reduced-motion: reduce) { .caret { animation: none !important; } }
@@ -266,6 +265,30 @@
   }
   body[data-animating="true"] .caret { visibility: hidden; }
   @keyframes typecursor { 50% { opacity: 0; } }
+
+  @media print {
+    @page { margin: 0.75in; size: letter; }
+    html, body {
+      background: white !important; color: black !important;
+      font-size: 10.5pt; line-height: 1.45;
+      background-image: none !important;
+      text-shadow: none !important;
+    }
+    body { --accent: #000; --mute: #444; --rule: #999; --ink: #000; }
+    .shell { max-width: none; padding: 0; margin: 0; }
+    .v-term { border: none !important; box-shadow: none !important; background: white !important; }
+    .term-bar { display: none !important; }
+    .term-body { padding: 0 !important; font-size: inherit !important; }
+    .term-line.cmd-line, .caret, .sig, .tweaks, .no-print { display: none !important; }
+    .cv-head .actions { display: none !important; }
+    .cv-head h1 { font-size: 18pt; }
+    .cv-h2 { color: #000 !important; }
+    .cv-h2::before { display: none; }
+    .cv-row { padding-left: 0; }
+    a { color: #000 !important; border-bottom: none !important; }
+    .me { border-bottom: none !important; font-weight: 700; }
+    .cv-section, .cv-row { break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
@@ -274,57 +297,217 @@
   <article class="v-term">
     <div class="term-bar">
       <i></i><i></i><i></i>
-      <span class="cwd">yilin@iu-luddy: ~</span>
+      <span class="cwd">yilin@iu-luddy: ~/cv</span>
       <span class="tabs" role="tablist">
-        <a class="tab on" href="index.html" role="tab">home</a>
-        <a class="tab"    href="cv.html"    role="tab">cv</a>
+        <a class="tab"    href="index.html" role="tab">home</a>
+        <a class="tab on" href="cv.html"    role="tab">cv</a>
       </span>
     </div>
     <div class="term-body">
 
-      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="whoami">whoami</span></div>
-      <div class="term-line out"><h1 class="em">Yilin Gong</h1></div>
-      <div class="term-line out">PhD Student &middot; Information Science &middot; Luddy School, Indiana University Bloomington</div>
-      <div class="term-line out">advisor: Prof. Siqi Wu &middot; previously: MS Data Science, University of Chicago</div>
+      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="cv-cat">cat cv.txt</span></div>
 
-      <div data-sp style="height:10px"></div>
+      <div data-sp style="height:6px"></div>
 
-      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="about">cat about.md</span></div>
-      <div class="term-line out">I study <span class="em">crowdsourced fact-checking</span> and the governance of online information.</div>
-      <div class="term-line out">Current focus: a large-scale audit of X's <span class="em">Community Notes</span> &middot; contributor labor, topic coverage, and the <span class="em">effectiveness-fairness paradox</span>.</div>
-      <div class="term-line out">Tools: Python &middot; R &middot; topic modeling &middot; network analysis &middot; mixed-effects models &middot; LLMs.</div>
-      <div class="term-line out">Venues: ICWSM &middot; AAAI &middot; IC2S2.</div>
+      <header class="cv-head">
+        <div class="actions no-print">
+          <a href="index.html">[back]</a>
+          <a href="#" id="print-link">[download pdf]</a>
+        </div>
+        <h1>Yilin Gong</h1>
+        <div class="meta">PhD Student &middot; Information Science &middot; Luddy School, Indiana University Bloomington</div>
+        <div class="contact">
+          <a href="mailto:yg24@iu.edu">yg24@iu.edu</a>
+          &middot; <a href="https://scholar.google.com/citations?user=YOUR_ID" rel="me">[scholar]</a>
+          &middot; <a href="https://github.com/yilingong" rel="me">[github]</a>
+          &middot; <a href="https://www.linkedin.com/in/yilingong" rel="me">[linkedin]</a>
+          &middot; <a href="index.html">[home]</a>
+        </div>
+      </header>
 
-      <div data-sp style="height:10px"></div>
+      <section class="cv-section">
+        <h2 class="cv-h2">education</h2>
 
-      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="papers">ls papers/ --long</span></div>
+        <div class="cv-row">
+          <div class="cv-date">2025 – present</div>
+          <div class="cv-body">
+            <div class="where">PhD, Information Science</div>
+            <div class="what">Luddy School of Informatics, Computing, and Engineering &middot; Indiana University Bloomington</div>
+            <div class="note">Advisor: <em>Prof. Siqi Wu</em>. Focus: crowdsourced fact-checking, Community Notes, platform governance.</div>
+          </div>
+        </div>
 
-      <section class="papers" aria-label="Publications">
-        <article class="paper">
-          <div class="line1"><span class="yr">[2026]</span> <h2 class="ptitle">The Effects of Request Alerts on the Diversity and Visibility of Community Notes</h2></div>
-          <div class="tldr">Request Alerts redirect existing contributor labor rather than generating new effort, with a quality-distance trade-off when writers venture outside their topic expertise.</div>
-          <div class="auth"><span class="me">Yilin Gong</span>, Siqi Wu &middot; in submission &middot; <a href="https://arxiv.org/abs/2604.17042">[arxiv]</a> <a href="https://arxiv.org/pdf/2604.17042">[pdf]</a> <a href="#">[code]</a></div>
-        </article>
+        <div class="cv-row">
+          <div class="cv-date">2022 – 2023</div>
+          <div class="cv-body">
+            <div class="where">MS, Data Science</div>
+            <div class="what">University of Chicago &middot; GPA 3.87</div>
+            <div class="note">Coursework: time-series forecasting, data mining, big-data platforms, marketing analytics, credit and insurance risk analytics, data engineering, data visualization.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">2018 – 2021</div>
+          <div class="cv-body">
+            <div class="where">BS, Information Science</div>
+            <div class="what">University of Colorado Boulder &middot; GPA 3.9 / 4.0</div>
+            <div class="note">Minor in Creative Technology Design.</div>
+          </div>
+        </div>
       </section>
 
-      <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="contact">contact</span></div>
-      <address class="term-line out" style="font-style: normal;">
-        <a href="mailto:yg24@iu.edu">yg24@iu.edu</a>
-        &middot; <a href="cv.html">[cv]</a>
-        &middot; <a href="https://scholar.google.com/citations?user=YOUR_ID" rel="me">[scholar]</a>
-        &middot; <a href="https://github.com/yilingong" rel="me">[github]</a>
-        &middot; <a href="https://www.linkedin.com/in/yilingong" rel="me">[linkedin]</a>
-      </address>
+      <section class="cv-section">
+        <h2 class="cv-h2">publications</h2>
 
-      <div data-sp style="height:10px"></div>
+        <div class="cv-row">
+          <div class="cv-date">2026</div>
+          <div class="cv-body">
+            <div class="where">The Effects of Request Alerts on the Diversity and Visibility of Community Notes</div>
+            <div class="what"><span class="me">Yilin Gong</span>, Siqi Wu &middot; in submission &middot; <a href="https://arxiv.org/abs/2604.17042">[arxiv]</a></div>
+            <div class="note">Request Alerts redirect existing contributor labor rather than generating new effort, with a quality-distance trade-off when writers venture outside their topic expertise.</div>
+          </div>
+        </div>
+      </section>
 
-      <div class="term-line cmd-line"><span class="prompt">$</span> <a href="cv.html" style="border-bottom: none;"><span class="cmd">cat cv.txt</span></a> <span class="caret" aria-hidden="true"></span></div>
+      <section class="cv-section">
+        <h2 class="cv-h2">research projects</h2>
+
+        <div class="cv-row">
+          <div class="cv-date">May – Sep 2024</div>
+          <div class="cv-body">
+            <div class="where">Dissemination and Online Influence of Films in the Advancement of Disability Rights</div>
+            <div class="what">Northwestern University &middot; with Hongjin Chen</div>
+            <div class="note">Cross-cultural mixed-methods study across US and China (N = 770+). SPSS reliability testing (Cronbach's α, KMO) and factor analysis; LDA topic modeling on reviews from IMDb, Rotten Tomatoes, and Douban; Granger causality on Google Trends signals (0.8725 Pearson).</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">Feb – Dec 2023</div>
+          <div class="cv-body">
+            <div class="where">Non-EDI Account Usage Prediction</div>
+            <div class="what">University of Chicago &middot; capstone with Power Kiosk</div>
+            <div class="note">Random Forest + AdaBoost ensemble reaching 95% accuracy (30% gain over baseline). Built a Google Search API + Beautiful Soup pipeline that scraped ~10,000 company profiles for enterprise classification.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">Sep – Dec 2022</div>
+          <div class="cv-body">
+            <div class="where">Twitter Users Education Analysis</div>
+            <div class="what">University of Chicago &middot; big-data course project</div>
+            <div class="note">Analyzed ~100M tweets (~500 GB) with PySpark on GCP. MinHash-based similarity to surface duplicate content across government, health, and media accounts.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">Sep – Nov 2021</div>
+          <div class="cv-body">
+            <div class="where">Data-Driven Investment Analysis</div>
+            <div class="what">University of Colorado Boulder</div>
+            <div class="note">Financial data on 1,000+ public companies; KMV credit-risk modeling to estimate default probabilities and shortlist potential targets.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-h2">experience</h2>
+
+        <div class="cv-row">
+          <div class="cv-date">Feb 2024 – May 2025</div>
+          <div class="cv-body">
+            <div class="where">Data Strategy & Operations Lead</div>
+            <div class="what">Dope Film &middot; Chicago</div>
+            <div class="note">Built KPI dashboards, ran competitive analysis, and designed data-driven retention strategies for a platform connecting filmmakers and small businesses.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">Jul – Sep 2023</div>
+          <div class="cv-body">
+            <div class="where">Economic Researcher / Data Analyst</div>
+            <div class="what">People's Bank of China &middot; Wuhan, Hubei</div>
+            <div class="note">Designed a mixed-methods study of interest-rate transmission; built a seasonally adjusted transmission model in R that informed end-of-year fiscal review. Contributed to a ~15% improvement in the bank's trend forecasts.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">May – Jul 2023</div>
+          <div class="cv-body">
+            <div class="where">Special Education Technology Volunteer</div>
+            <div class="what">Aite Special Children's Inclusive Education &middot; Wuhan</div>
+            <div class="note">Participatory research with special-education practitioners. Led a team building an AI tool that converts teacher observations into parent-friendly progress reports.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">Mar – Aug 2022</div>
+          <div class="cv-body">
+            <div class="where">Litigation Support Analyst</div>
+            <div class="what">Zenith American Solutions &middot; Remote</div>
+            <div class="note">Managed document-review databases (1 TB+) for 15+ legal teams; designed search strategies across 500K+ documents, cutting research time by ~35%.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-h2">awards</h2>
+
+        <div class="cv-row">
+          <div class="cv-date">2021</div>
+          <div class="cv-body">
+            <div class="where">Reilly News Ed Scholarship</div>
+            <div class="what">University of Colorado Boulder</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">2020</div>
+          <div class="cv-body">
+            <div class="where">Honor of Outstanding Performance</div>
+            <div class="what">DIAN Insurance</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-h2">skills</h2>
+
+        <div class="cv-row">
+          <div class="cv-date">methods</div>
+          <div class="cv-body">
+            <div class="what">Mixed-methods research, experimental design, survey design, statistical analysis, time-series analysis, mixed-effects models, Granger causality, factor analysis (Cronbach's α, KMO), topic modeling (BERTopic, LDA), network analysis, sentiment analysis.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">programming</div>
+          <div class="cv-body">
+            <div class="what">Python (Pandas, NumPy, scikit-learn, NLTK, statsmodels, Beautiful Soup), R, SQL, PySpark, Google Cloud Platform, Plotly, Matplotlib, Seaborn, SPSS.</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">ml / nlp</div>
+          <div class="cv-body">
+            <div class="what">Random Forest, AdaBoost, cross-validation and hyperparameter tuning, LLM fine-tuning (BERT, TinyLlama), embedding-based retrieval and clustering (UMAP + HDBSCAN).</div>
+          </div>
+        </div>
+
+        <div class="cv-row">
+          <div class="cv-date">languages</div>
+          <div class="cv-body">
+            <div class="what">English (professional), Mandarin Chinese (native).</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="term-line cmd-line"><span class="prompt">$</span> <a href="index.html" style="border-bottom: none;"><span class="cmd">cd ..</span></a> <span class="caret" aria-hidden="true"></span></div>
 
     </div>
   </article>
 
   <div class="sig">
-    <span>© 2026 Yilin Gong &middot; hosted on GitHub Pages</span>
+    <span>© 2026 Yilin Gong</span>
     <span>last updated <time datetime="2026-04-24">Apr 2026</time></span>
   </div>
 </main>
@@ -354,36 +537,21 @@
         <button data-v="spacious">spacious</button>
       </div>
     </div>
-    <div class="tweaks-grp">
-      <div class="tweaks-lbl">persona</div>
-      <div class="tweaks-row" data-key="persona">
-        <button data-v="academic">academic</button>
-        <button data-v="engineer">engineer</button>
-        <button data-v="casual">casual</button>
-      </div>
-    </div>
   </div>
 </aside>
 
 <script>
-  const PAGE = 'home';
+  const PAGE = 'cv';
 
   const TWEAKS = /*EDITMODE-BEGIN*/{
     "theme": "auto",
-    "density": "spacious",
-    "persona": "academic"
+    "density": "spacious"
   }/*EDITMODE-END*/;
 
   try {
     const stored = localStorage.getItem('siteTweaks');
     if (stored) Object.assign(TWEAKS, JSON.parse(stored));
   } catch (e) {}
-
-  const PERSONA = {
-    academic: { prompt: '$', whoami: 'whoami',                about: 'cat about.md',     papers: 'ls papers/ --long',          contact: 'contact' },
-    engineer: { prompt: '>', whoami: 'git config user.name',  about: 'cat README.md',    papers: 'git log --oneline papers/',  contact: 'curl /contact.json' },
-    casual:   { prompt: '>', whoami: 'hi',                    about: 'what do you do?',  papers: 'show me the papers',         contact: 'how do I reach you?' },
-  };
 
   function resolveTheme(t) {
     if (t !== 'auto') return t;
@@ -392,13 +560,6 @@
   function applyTweaks(t) {
     document.body.dataset.theme = resolveTheme(t.theme);
     document.body.dataset.density = t.density;
-    document.body.dataset.persona = t.persona;
-    const p = PERSONA[t.persona] || PERSONA.academic;
-    document.querySelectorAll('[data-cmd]').forEach(el => {
-      const k = el.dataset.cmd;
-      if (p[k]) el.textContent = p[k];
-    });
-    document.querySelectorAll('.term-line .prompt').forEach(el => { el.textContent = p.prompt; });
     document.querySelectorAll('.tweaks-row').forEach(row => {
       const key = row.dataset.key;
       row.querySelectorAll('button').forEach(b => {
@@ -437,6 +598,11 @@
     if (d.type === '__deactivate_edit_mode') panel.classList.remove('on');
   });
   try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+
+  document.getElementById('print-link').addEventListener('click', e => {
+    e.preventDefault();
+    window.print();
+  });
 
   (function () {
     const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -514,18 +680,6 @@
     if (!c) return;
     var on = true;
     setInterval(() => { c.style.opacity = (on = !on) ? '1' : '0'; }, 530);
-  })();
-
-  (function () {
-    var cwd = document.querySelector('.term-bar .cwd');
-    if (!cwd) return;
-    var paths = ['~', '~/research', '~/papers', '~/notes', '~/iu-luddy'];
-    var i = 0;
-    cwd.style.cursor = 'pointer';
-    cwd.addEventListener('click', () => {
-      i = (i + 1) % paths.length;
-      cwd.textContent = 'yilin@iu-luddy: ' + paths[i];
-    });
   })();
 </script>
 
