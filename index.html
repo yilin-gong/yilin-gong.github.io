@@ -172,10 +172,22 @@
     font-size: 11px;
   }
   .term-bar i {
-    width: 10px; height: 10px; border-radius: 50%;
-    border: 1.2px solid var(--paper);
-    display: inline-block;
+    width: 12px; height: 12px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.25);
+    font-style: normal; font-weight: 700;
+    color: rgba(0,0,0,0.55); line-height: 1;
+    cursor: pointer;
+    transition: filter 0.15s;
   }
+  .term-bar i:nth-of-type(1) { background: #ff5f57; }
+  .term-bar i:nth-of-type(2) { background: #febc2e; }
+  .term-bar i:nth-of-type(3) { background: #28c840; }
+  .term-bar i::before { content: ''; opacity: 0; transition: opacity 0.12s; }
+  .term-bar:hover i:nth-of-type(1)::before { content: '×'; font-size: 12px; opacity: 1; }
+  .term-bar:hover i:nth-of-type(2)::before { content: '−'; font-size: 12px; opacity: 1; margin-top: -1px; }
+  .term-bar:hover i:nth-of-type(3)::before { content: '+'; font-size: 11px; opacity: 1; }
+  .term-bar i:active { filter: brightness(0.85); }
   .term-bar .cwd { margin-left: 10px; opacity: 0.85; user-select: none; }
   .term-bar .tabs { margin-left: auto; display: flex; gap: 2px; }
   .term-bar .tab {
@@ -301,7 +313,7 @@
 
       <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="about">cat about.md</span></div>
       <div class="term-line out">I study <span class="em">crowdsourced fact-checking</span> and the governance of online information.</div>
-      <div class="term-line out">Current focus: a large-scale audit of X's <span class="em">Community Notes</span> &middot; contributor labor, topic coverage, and the <span class="em">effectiveness-fairness paradox</span>.</div>
+      <div class="term-line out">Current focus: a large-scale audit of X's Community Notes &middot; contributor labor, topic coverage, and the effectiveness-fairness paradox.</div>
       <div class="term-line out">Tools: Python &middot; R &middot; topic modeling &middot; network analysis &middot; mixed-effects models &middot; LLMs.</div>
       <div class="term-line out">Venues: ICWSM &middot; AAAI &middot; IC2S2.</div>
 
@@ -310,6 +322,11 @@
       <div class="term-line cmd-line"><span class="prompt">$</span> <span class="cmd" data-cmd="papers">ls papers/ --long</span></div>
 
       <section class="papers" aria-label="Publications">
+        <article class="paper">
+          <div class="line1"><span class="yr">[2026]</span> <h2 class="ptitle">Characterizing AI Fact-Checkers and Their Contributions on Community Notes</h2></div>
+          <div class="tldr">20 AI systems wrote ~14% of Community Notes (rising to 45% recently), responding within minutes and filling 74.4% of gaps in human coverage — proportionally more helpful than lay contributors but still trailing experts.</div>
+          <div class="auth"><span class="me">Yilin Gong</span>, Siqi Wu &middot; in submission &middot; <a href="https://arxiv.org/abs/2605.16566">[arxiv]</a> <a href="https://arxiv.org/pdf/2605.16566">[pdf]</a> <a href="#">[code]</a></div>
+        </article>
         <article class="paper">
           <div class="line1"><span class="yr">[2026]</span> <h2 class="ptitle">The Effects of Request Alerts on the Diversity and Visibility of Community Notes</h2></div>
           <div class="tldr">Request Alerts redirect existing contributor labor rather than generating new effort, with a quality-distance trade-off when writers venture outside their topic expertise.</div>
@@ -335,7 +352,7 @@
 
   <div class="sig">
     <span>© 2026 Yilin Gong &middot; hosted on GitHub Pages</span>
-    <span>last updated <time datetime="2026-04-24">Apr 2026</time></span>
+    <span>last updated <time datetime="2026-05-18">May 2026</time></span>
   </div>
 </main>
 
